@@ -2,14 +2,14 @@
 <html>
 <head>
 <script>
-function httpGetAsync(theUrl)
+function getRates()
 {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
         {
             var response = JSON.parse(xmlHttp.responseText);
-            document.getElementById("demo").innerHTML = response.result.XETHZEUR.a;
+            document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0];
         }
     }
     xmlHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR", true); // true for asynchronous 
@@ -18,13 +18,11 @@ function httpGetAsync(theUrl)
 </script>
 </head>
 
-<body>
+<body onload="getRates()">
 
-<h1>Kraken Ticker Test</h1>
+<h1>My simple kraken ticker</h1>
 
-<p id="demo">A Paragraph.</p>
-
-<button type="button" onclick="httpGetAsync()">Find A</button>
+<p id="etheur">ETH EUR</p>
 
 </body>
 </html> 
