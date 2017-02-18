@@ -4,30 +4,17 @@
 <script>
 function getRates()
 {
-    getRate("etheur", "XETHZEUR");
-    //var xmlHttp = new XMLHttpRequest();
-    //xmlHttp.onreadystatechange = function() { 
-    //    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-    //    {
-    //        var response = JSON.parse(xmlHttp.responseText);
-    //        document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0];
-    //    }
-    //}
-    //xmlHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR", true);
-    //xmlHttp.send(null);
-}
-
-function getRate(elementId, pair)
-{
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
         {
             var response = JSON.parse(xmlHttp.responseText);
-            document.getElementById(elementId).innerHTML = response.result.XETHZEUR.a[0];
+            document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0];
+            document.getElementById("xmreur").innerHTML = response.result.XXMRZEUR.a[0];
+            document.getElementById("btceur").innerHTML = response.result.XXBTZEUR.a[0];
         }
     }
-    xmlHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=" + pair, true);
+    xmlHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR", true);
     xmlHttp.send(null);
 }
 
@@ -39,13 +26,13 @@ function getRate(elementId, pair)
 <h1>My simple kraken ticker</h1>
 
 <p id="etheurlabel">ETH EUR</p>
-<p id="etheur">so2on</p>
+<p id="etheur">...loading</p>
 <br></br>
 <p id="xmreur">XMR EUR</p>
-<p id="xmreur">soon</p>
+<p id="xmreur">..loading</p>
 <br></br>
 <p id="btceur">BTC EUR</p>
-<p id="btceur">soon</p>
+<p id="btceur">..loading</p>
 
 </body>
 </html> 
