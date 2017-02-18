@@ -9,7 +9,7 @@ function httpGetAsync(theUrl)
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
         {
             var response = JSON.parse(xmlHttp.responseText);
-            document.getElementById("demo").innerHTML = response.result;
+            document.getElementById("demo").innerHTML = response.result.XETHZEUR.a;
         }
     }
     xmlHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR", true); // true for asynchronous 
@@ -24,7 +24,7 @@ function httpGetAsync(theUrl)
 
 <p id="demo">A Paragraph.</p>
 
-<button type="button" onclick="httpGetAsync()">Krak it 2</button>
+<button type="button" onclick="httpGetAsync()">Find A</button>
 
 </body>
 </html> 
