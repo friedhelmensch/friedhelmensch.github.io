@@ -4,17 +4,33 @@
 <script>
 function getRates()
 {
+    getRate(etheur, XETHZEUR);
+    //var xmlHttp = new XMLHttpRequest();
+    //xmlHttp.onreadystatechange = function() { 
+    //    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+    //    {
+    //        var response = JSON.parse(xmlHttp.responseText);
+    //        document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0];
+    //    }
+    //}
+    //xmlHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR", true);
+    //xmlHttp.send(null);
+}
+
+function getRate(elementId, pair)
+{
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
         {
             var response = JSON.parse(xmlHttp.responseText);
-            document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0];
+            document.getElementById(elementId).innerHTML = response.result.XETHZEUR.a[0];
         }
     }
-    xmlHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR", true); // true for asynchronous 
+    xmlHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=" + pair, true);
     xmlHttp.send(null);
 }
+
 </script>
 </head>
 
@@ -22,7 +38,14 @@ function getRates()
 
 <h1>My simple kraken ticker</h1>
 
-<p id="etheur">ETH EUR</p>
+<p id="etheurlabel">ETH EUR</p>
+<p id="etheur">soon</p>
+<br></br>
+<p id="xmreur">XMR EUR</p>
+<p id="xmreur">soon</p>
+<br></br>
+<p id="btceur">BTC EUR</p>
+<p id="btceur">soon</p>
 
 </body>
 </html> 
