@@ -8,7 +8,8 @@ function httpGetAsync(theUrl)
     xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
         {
-            document.getElementById("demo").innerHTML = xmlHttp.responseText;
+            var response = JSON.parse(xmlHttp.responseText);
+            document.getElementById("demo").innerHTML = response.XETHZEUR;
         }
     }
     xmlHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR", true); // true for asynchronous 
