@@ -11,10 +11,11 @@ function getRates()
             var response = JSON.parse(xmlHttp.responseText);
             document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0];
             document.getElementById("xmreur").innerHTML = response.result.XXMRZEUR.a[0];
+            document.getElementById("ltceur").innerHTML = response.result.XLTCZEUR.a[0];
             document.getElementById("btceur").innerHTML = response.result.XXBTZEUR.a[0];
         }
     }
-    xmlHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR", true);
+    xmlHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR", true);
     xmlHttp.send(null);
 }
 
@@ -31,6 +32,9 @@ function getRates()
 <p>XMR EUR</p>
 <p id="xmreur">..loading</p>
 
+<p>LTC EUR</p>
+<p id="ltceur">..loading</p>
+    
 <p>BTC EUR</p>
 <p id="btceur">..loading</p>
 
