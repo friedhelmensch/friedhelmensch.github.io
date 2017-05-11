@@ -39,7 +39,7 @@ function getRates()
             //document.getElementById("tkneur").innerHTML = tokenCardHttp.responseType;
         }*/
     }
-    tokenCardHttp.open("GET", "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", true);
+    tokenCardHttp.open("GET", "https://api.coinmarketcap.com/v1/ticker/tokencard?convert=EUR", true);
     tokenCardHttp.send();
 }
 
