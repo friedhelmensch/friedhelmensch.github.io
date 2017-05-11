@@ -12,10 +12,11 @@ function getRates()
             document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0];
             document.getElementById("xmreur").innerHTML = response.result.XXMRZEUR.a[0];
             document.getElementById("ltceur").innerHTML = response.result.XLTCZEUR.a[0];
+            document.getElementById("xlmeur").innerHTML = response.result.XXLMZEUR.a[0];
             document.getElementById("btceur").innerHTML = response.result.XXBTZEUR.a[0];
         }
     }
-    xmlHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR", true);
+    xmlHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
     xmlHttp.send(null);
 }
 
@@ -26,16 +27,19 @@ function getRates()
 
 <h3>Kraken ticker</h3>
 
-<p>ETH EUR</p>
+<p>Ethereum</p>
 <p id="etheur">...loading</p>
 
-<p>XMR EUR</p>
+<p>Litecoin</p>
+<p id="ltceur">..loading</p>
+
+<p>Monero</p>
 <p id="xmreur">..loading</p>
 
-<p>LTC EUR</p>
-<p id="ltceur">..loading</p>
+<p>Stellar Lumen</p>
+<p id="xlmeur">..loading</p>
     
-<p>BTC EUR</p>
+<p>Bitcoin alter</p>
 <p id="btceur">..loading</p>
 
 </body>
