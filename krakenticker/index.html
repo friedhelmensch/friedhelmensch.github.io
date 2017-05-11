@@ -7,7 +7,7 @@ function getRates()
     var tokenCardHttp = new XMLHttpRequest();
     tokenCardHttp.onreadystatechange = function() 
     {
-        alert("status: " + tokenCardHttp.status + " readystate " + tokenCardHttp.readyState + " status text " + tokenCardHttp.statusText + " responseXml " + tokenCardHttp.responseXML);
+        alert("status: " + tokenCardHttp.status + " readystate " + tokenCardHttp.readyState + " responsttext " + tokenCardHttp.responseText + " responseXml " + tokenCardHttp.responseXML);
     }
     //tokenCardHttp.open("GET", "http://api.coinmarketcap.com/v1/ticker/tokencard?convert=EUR", true);
     tokenCardHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
