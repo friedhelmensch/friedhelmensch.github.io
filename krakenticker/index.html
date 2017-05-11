@@ -26,6 +26,7 @@ function getRates()
         document.getElementById("tkneur").innerHTML = tokenCardHttp.readyState;
         if (tokenCardHttp.readyState == 4 && tokenCardHttp.status == 200)
         {
+            document.getElementById("tkneur").innerHTML = "returned";
             var response = JSON.parse(tokenCardHttp.responseText);
             document.getElementById("tkneur").innerHTML = "returned";
         }
@@ -50,7 +51,7 @@ function getRates()
 <h3>Monero</h3>
 <p id="xmreur">..loading</p>
 
-<h3>Token Card ready</h3>
+<h3>Token Card asfa</h3>
 <p id="tkneur">..loading</p>
     
 <h3>Stellar Lumen</h3>
