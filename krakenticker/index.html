@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="jquery-3.2.1.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
 <script>
 function getRates()
 {   
@@ -20,7 +23,7 @@ function getRates()
     krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
     krakenHttp.send(null);
     
-    $.getJSON( "http://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", function(data) 
+    $.getJSON( "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", function(data) 
         { alert("hi");}
     );
 }
@@ -41,7 +44,7 @@ function getRates()
 <h3>Monero</h3>
 <p id="xmreur">..loading</p>
 
-<h3>Token Card..</h3>
+<h3>Token Card</h3>
 <p id="tkneur">not working yet</p>
     
 <h3>Stellar Lumen</h3>
