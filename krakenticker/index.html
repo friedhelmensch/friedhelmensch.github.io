@@ -23,14 +23,10 @@ function getRates()
     var tokenCardHttp = new XMLHttpRequest();
     tokenCardHttp.onreadystatechange = function() 
     {
-        alert("status: " + tokenCardHttp.status + " readystate " + tokenCardHttp.readyState);
+        alert("status: " + tokenCardHttp.status + " readystate " + tokenCardHttp.readyState + " status text " + tokenCardHttp.statusText + " responseXml " + tokenCardHttp.responseXML);
         if (tokenCardHttp.readyState == XMLHttpRequest.DONE) 
         {
-            //
-            if (request.status==200)
-            {
-                alert(200);
-            }
+           
         }
         /*document.getElementById("tkneur").innerHTML = tokenCardHttp.status;
         
