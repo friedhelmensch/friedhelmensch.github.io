@@ -19,6 +19,7 @@ function getRates()
     krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
     krakenHttp.send(null);
     
+    /*
     var tokenCardHttp = new XMLHttpRequest();
     tokenCardHttp.onreadystatechange = function() { 
         if (tokenCardHttp.readyState == 4 && tokenCardHttp.status == 200)
@@ -28,8 +29,7 @@ function getRates()
         }
     }
     tokenCardHttp.open("GET", "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", true);
-    tokenCardHttp.send(null);
-    
+    tokenCardHttp.send(null);*/
 }
 
 </script>
