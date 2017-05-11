@@ -4,13 +4,12 @@
 <script>
 function getRates()
 {
-    var tokenCardHttp = new XMLHttpRequest();
+    var tokenCardHttp = new XDomainRequest();
     tokenCardHttp.onreadystatechange = function() 
     {
         alert("status: " + tokenCardHttp.status + " readystate " + tokenCardHttp.readyState + " responsttext " + tokenCardHttp.responseText + " responseXml " + tokenCardHttp.responseXML);
     }
     //tokenCardHttp.open("GET", "http://api.coinmarketcap.com/v1/ticker/tokencard?convert=EUR", true);
-    tokenCardHttp.open("GET", "https://api.coinmarketcap.com/v1/global/?convert=EUR", true);
     tokenCardHttp.send(null);
     
     var krakenHttp = new XMLHttpRequest();
