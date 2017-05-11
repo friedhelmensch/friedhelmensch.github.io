@@ -9,7 +9,8 @@ function getRates()
     {
         alert("status: " + tokenCardHttp.status + " readystate " + tokenCardHttp.readyState + " status text " + tokenCardHttp.statusText + " responseXml " + tokenCardHttp.responseXML);
     }
-    tokenCardHttp.open("GET", 'http://api.coinmarketcap.com/v1/ticker/tokencard?convert=EUR', true);
+    //tokenCardHttp.open("GET", "http://api.coinmarketcap.com/v1/ticker/tokencard?convert=EUR", true);
+    tokenCardHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
     tokenCardHttp.send(null);
     
     var krakenHttp = new XMLHttpRequest();
@@ -44,7 +45,7 @@ function getRates()
 <h3>Monero</h3>
 <p id="xmreur">..loading</p>
 
-<h3>Token Card wa</h3>
+<h3>Token Card zut</h3>
 <p id="tkneur">..loading</p>
     
 <h3>Stellar Lumen</h3>
