@@ -3,15 +3,7 @@
 <head>
 <script>
 function getRates()
-{
-    var tokenCardHttp = new XMLHttpRequest();
-    tokenCardHttp.onreadystatechange = function() 
-    {
-        alert("status: " + tokenCardHttp.status + " readystate " + tokenCardHttp.readyState + " responsttext " + tokenCardHttp.responseText + " responseXml " + tokenCardHttp.responseXML);
-    }
-    //tokenCardHttp.open("GET", "http://api.coinmarketcap.com/v1/ticker/tokencard?convert=EUR", true);
-    tokenCardHttp.send(null);
-    
+{   
     var krakenHttp = new XMLHttpRequest();
     krakenHttp.onreadystatechange = function() { 
         if (krakenHttp.readyState == 4 && krakenHttp.status == 200)
