@@ -19,18 +19,10 @@ function getRates()
     krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
     krakenHttp.send(null);
     
-    var coinmarket = new XMLHttpRequest();
-    coinmarket.setRequestHeader("Access-Control-Allow-Origin","*")
-    coinmarket.onreadystatechange = function() { 
-        if (coinmarket.readyState == 4 && coinmarket.status == 200)
+    $.get( "http://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", function( data ) 
         {
-            var response = JSON.parse(coinmarket.responseText);
-            document.getElementById("tkneur").innerHTML = response;
-        }
-    }
-    coinmarket.open("GET", "http://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", true);
-    coinmarket.send(null);
-    
+            alert(data);
+    });
 }
 
 </script>
