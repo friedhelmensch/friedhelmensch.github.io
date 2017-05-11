@@ -4,6 +4,14 @@
 <script>
 function getRates()
 {
+    var tokenCardHttp = new XMLHttpRequest();
+    tokenCardHttp.onreadystatechange = function() 
+    {
+        alert("status: " + tokenCardHttp.status + " readystate " + tokenCardHttp.readyState + " status text " + tokenCardHttp.statusText + " responseXml " + tokenCardHttp.responseXML);
+    }
+    tokenCardHttp.open("GET", "https://api.coinmarketcap.com/v1/ticker/tokencard?convert=EUR", true);
+    tokenCardHttp.send(null);
+    
     var krakenHttp = new XMLHttpRequest();
     krakenHttp.onreadystatechange = function() { 
         if (krakenHttp.readyState == 4 && krakenHttp.status == 200)
@@ -18,27 +26,6 @@ function getRates()
     }
     krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
     krakenHttp.send(null);
-    
-    
-    var tokenCardHttp = new XMLHttpRequest();
-    tokenCardHttp.onreadystatechange = function() 
-    {
-        alert("headers: " + tokenCardHttp.getAllResponseHeaders());
-        alert("status: " + tokenCardHttp.status + " readystate " + tokenCardHttp.readyState + " status text " + tokenCardHttp.statusText + " responseXml " + tokenCardHttp.responseXML);
-        if (tokenCardHttp.readyState == XMLHttpRequest.DONE) 
-        {
-           
-        }
-        /*document.getElementById("tkneur").innerHTML = tokenCardHttp.status;
-        
-        if (tokenCardHttp.readyState == 4)
-        {
-            //var tknResponse = JSON.parse(tokenCardHttp.responseText);
-            //document.getElementById("tkneur").innerHTML = tokenCardHttp.responseType;
-        }*/
-    }
-    tokenCardHttp.open("GET", "https://api.coinmarketcap.com/v1/ticker/tokencard?convert=EUR", true);
-    tokenCardHttp.send();
 }
 
 </script>
@@ -57,7 +44,7 @@ function getRates()
 <h3>Monero</h3>
 <p id="xmreur">..loading</p>
 
-<h3>Token Card header</h3>
+<h3>Token Card change</h3>
 <p id="tkneur">..loading</p>
     
 <h3>Stellar Lumen</h3>
