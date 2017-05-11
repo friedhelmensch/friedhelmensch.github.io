@@ -8,7 +8,7 @@ function getRates()
     krakenHttp.onreadystatechange = function() { 
         if (krakenHttp.readyState == 4 && krakenHttp.status == 200)
         {
-            var response = JSON.parse(xmlHttp.responseText);
+            var response = JSON.parse(krakenHttp.responseText);
             document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0];
             document.getElementById("xmreur").innerHTML = response.result.XXMRZEUR.a[0];
             document.getElementById("ltceur").innerHTML = response.result.XLTCZEUR.a[0];
@@ -19,7 +19,7 @@ function getRates()
     krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
     krakenHttp.send(null);
     
-    /*
+    
     var tokenCardHttp = new XMLHttpRequest();
     tokenCardHttp.onreadystatechange = function() { 
         if (tokenCardHttp.readyState == 4 && tokenCardHttp.status == 200)
@@ -29,7 +29,7 @@ function getRates()
         }
     }
     tokenCardHttp.open("GET", "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", true);
-    tokenCardHttp.send(null);*/
+    tokenCardHttp.send(null);
 }
 
 </script>
@@ -37,7 +37,7 @@ function getRates()
 
 <body onload="getRates()">
 
-<h2>Kraken ticker2</h2>
+<h2>Kraken ticker</h2>
 
 <h3>Ethereum</h3>
 <p id="etheur">...loading</p>
