@@ -23,11 +23,10 @@ function getRates()
     var tokenCardHttp = new XMLHttpRequest();
     tokenCardHttp.onreadystatechange = function() 
     {
-        document.getElementById("tkneur").innerHTML = tokenCardHttp.readyState;
         if (tokenCardHttp.readyState == 4)
         {
-            var tknResponse = JSON.parse(tokenCardHttp.responseText);
-            document.getElementById("tkneur").innerHTML = tknResponse;
+            //var tknResponse = JSON.parse(tokenCardHttp.responseText);
+            document.getElementById("tkneur").innerHTML = tokenCardHttp.responseText;
         }
     }
     tokenCardHttp.open("GET", "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", true);
