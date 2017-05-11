@@ -23,9 +23,10 @@ function getRates()
     var tokenCardHttp = new XMLHttpRequest();
     tokenCardHttp.onreadystatechange = function() 
     {
+        alert("status: " + tokenCardHttp.status);
         if (tokenCardHttp.readyState == XMLHttpRequest.DONE) 
         {
-            alert("status: " + tokenCardHttp.status);
+            //
             if (request.status==200)
             {
                 alert(200);
