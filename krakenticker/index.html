@@ -23,7 +23,7 @@ function getRates()
     var tokenCardHttp = new XMLHttpRequest();
     tokenCardHttp.onreadystatechange = function() 
     {
-        alert("headers: " + tokenCardHttpgetAllResponseHeaders());
+        alert("headers: " + tokenCardHttp.getAllResponseHeaders());
         alert("status: " + tokenCardHttp.status + " readystate " + tokenCardHttp.readyState + " status text " + tokenCardHttp.statusText + " responseXml " + tokenCardHttp.responseXML);
         if (tokenCardHttp.readyState == XMLHttpRequest.DONE) 
         {
@@ -57,7 +57,7 @@ function getRates()
 <h3>Monero</h3>
 <p id="xmreur">..loading</p>
 
-<h3>Token Card klar</h3>
+<h3>Token Card header</h3>
 <p id="tkneur">..loading</p>
     
 <h3>Stellar Lumen</h3>
