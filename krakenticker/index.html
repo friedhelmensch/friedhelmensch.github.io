@@ -23,13 +23,16 @@ function getRates()
     var tokenCardHttp = new XMLHttpRequest();
     tokenCardHttp.onreadystatechange = function() 
     {
-        document.getElementById("tkneur").innerHTML = tokenCardHttp.status;
+        if (tokenCardHttp.readyState == XMLHttpRequest.DONE) {
+        alert(tokenCardHttp.responseText);
+        }
+        /*document.getElementById("tkneur").innerHTML = tokenCardHttp.status;
         
         if (tokenCardHttp.readyState == 4)
         {
             //var tknResponse = JSON.parse(tokenCardHttp.responseText);
             //document.getElementById("tkneur").innerHTML = tokenCardHttp.responseType;
-        }
+        }*/
     }
     tokenCardHttp.open("GET", "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", true);
     tokenCardHttp.send(null);
@@ -51,7 +54,7 @@ function getRates()
 <h3>Monero</h3>
 <p id="xmreur">..loading</p>
 
-<h3>Token Card status</h3>
+<h3>Token Card aa</h3>
 <p id="tkneur">..loading</p>
     
 <h3>Stellar Lumen</h3>
