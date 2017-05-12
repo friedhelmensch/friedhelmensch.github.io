@@ -21,7 +21,7 @@
       krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
       krakenHttp.send(null);
       
-      var jqxhr = $.ajax(
+      var jqxhr = $.ajax({
            type:"GET",
            url: "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR",
            dataType: "jsonp"
@@ -52,7 +52,7 @@
 <h3>Monero</h3>
 <p id="xmreur">..loading</p>
 
-<h3>Token Card</h3>
+<h3>Token Card_</h3>
 <p id="tkneur">not working yet</p>
     
 <h3>Stellar Lumen</h3>
