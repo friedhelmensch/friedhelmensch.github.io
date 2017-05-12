@@ -22,8 +22,9 @@
       krakenHttp.send(null);
       
       var jqxhr = $.ajax(
+           type:"GET",
            url: "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR",
-           dataType: "jsonp";
+           dataType: "jsonp"
          })
            .done(function() {
              alert( "done" );
