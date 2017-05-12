@@ -29,8 +29,8 @@
            .done(function() {
              alert( "done" );
            })
-           .fail(function() {
-             alert("fail");
+           .fail(function(xhr, textStatus, error) {
+             alert(xhr.status);
            })
            .always(function() {
              alert( "finished coin" );
@@ -52,7 +52,7 @@
 <h3>Monero</h3>
 <p id="xmreur">..loading</p>
 
-<h3>Token Card_</h3>
+<h3>Token Card_!</h3>
 <p id="tkneur">not working yet</p>
     
 <h3>Stellar Lumen</h3>
