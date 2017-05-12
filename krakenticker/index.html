@@ -21,14 +21,15 @@
       krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
       krakenHttp.send(null);
       
-      var jqxhr = $.ajax( "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", function() {
-           alert( "coin" );
+      var jqxhr = $.ajax(
+           url: "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR",
+           dataType: "jsonp";
          })
            .done(function() {
-             alert( "second coin" );
+             alert( "done" );
            })
-           .fail(function(jqXHR, textStatus, errorThrown) {
-             alert("ajax " + errorThrown);
+           .fail(function() {
+             alert("fail");
            })
            .always(function() {
              alert( "finished coin" );
