@@ -27,8 +27,8 @@
            .done(function() {
              alert( "second coin" );
            })
-           .fail(function() {
-             alert( "error coin" );
+           .fail(function(jqXHR, textStatus, errorThrown) {
+             alert("thrown " + errorThrown);
            })
            .always(function() {
              alert( "finished coin" );
