@@ -21,6 +21,7 @@
       krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
       krakenHttp.send(null);
       
+      /*
       var jqxhr = $.ajax({
            type:"GET",
            url: "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR",
@@ -34,7 +35,7 @@
            })
            .always(function() {
              alert( "finished coin" );
-           });
+           });*/
    }
 </script>   
 </head>
@@ -51,9 +52,6 @@
 
 <h3>Monero</h3>
 <p id="xmreur">..loading</p>
-
-<h3>Token Card_4</h3>
-<p id="tkneur">not working yet</p>
     
 <h3>Stellar Lumen</h3>
 <p id="xlmeur">..loading</p>
@@ -61,5 +59,8 @@
 <h3>Bitcoin alter</h3>
 <p id="btceur">..loading</p>
 
+<h3>Token Card</h3>
+<p id="tkneur">not working yet</p>
+   
 </body>
 </html> 
