@@ -7,23 +7,32 @@
    function getRates()
    {     
       var krakenHttp = new XMLHttpRequest();
-       krakenHttp.onreadystatechange = function() { 
-           if (krakenHttp.readyState == 4 && krakenHttp.status == 200)
-           {
+      krakenHttp.onreadystatechange = function() { 
+          if (krakenHttp.readyState == 4 && krakenHttp.status == 200)
+          {
                var response = JSON.parse(krakenHttp.responseText);
                document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0];
                document.getElementById("xmreur").innerHTML = response.result.XXMRZEUR.a[0];
                document.getElementById("ltceur").innerHTML = response.result.XLTCZEUR.a[0];
                document.getElementById("xlmeur").innerHTML = response.result.XXLMZEUR.a[0];
                document.getElementById("btceur").innerHTML = response.result.XXBTZEUR.a[0];
-           }
-       }
-       krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
-       krakenHttp.send(null);
-      $(function(){
-      alert("In on rates");
-   });
+          }
+      }
+      krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
+      krakenHttp.send(null);
       
+      var jqxhr = $.get( "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", function() {
+           alert( "success" );
+         })
+           .done(function() {
+             alert( "second success" );
+           })
+           .fail(function() {
+             alert( "error" );
+           })
+           .always(function() {
+             alert( "finished" );
+           });
    }
 </script>   
 </head>
