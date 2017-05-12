@@ -22,16 +22,16 @@
       krakenHttp.send(null);
       
       var jqxhr = $.get( "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", function() {
-           alert( "success" );
+           alert( "coin" );
          })
            .done(function() {
-             alert( "second success" );
+             alert( "second coin" );
            })
            .fail(function() {
-             alert( "error" );
+             alert( "error coin" );
            })
            .always(function() {
-             alert( "finished" );
+             alert( "finished coin" );
            });
    }
 </script>   
