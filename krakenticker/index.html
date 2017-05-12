@@ -3,9 +3,7 @@
 <head>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
-   $(function(){
-      alert("My First Jquery Test");
-   });
+   
    function getRates()
    {     
       var krakenHttp = new XMLHttpRequest();
@@ -22,6 +20,10 @@
        }
        krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
        krakenHttp.send(null);
+      $(function(){
+      alert("In on rates");
+   });
+      
    }
 </script>   
 </head>
