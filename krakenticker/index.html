@@ -6,10 +6,27 @@
    $(function(){
       alert("My First Jquery Test");
    });
-</script>    
+   function getRates()
+   {     
+      var krakenHttp = new XMLHttpRequest();
+       krakenHttp.onreadystatechange = function() { 
+           if (krakenHttp.readyState == 4 && krakenHttp.status == 200)
+           {
+               var response = JSON.parse(krakenHttp.responseText);
+               document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0];
+               document.getElementById("xmreur").innerHTML = response.result.XXMRZEUR.a[0];
+               document.getElementById("ltceur").innerHTML = response.result.XLTCZEUR.a[0];
+               document.getElementById("xlmeur").innerHTML = response.result.XXLMZEUR.a[0];
+               document.getElementById("btceur").innerHTML = response.result.XXBTZEUR.a[0];
+           }
+       }
+       krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
+       krakenHttp.send(null);
+   }
+</script>   
 </head>
 
-<body> //onload="getRates()">
+<body onload="getRates()">
 
 <h2>Kraken ticker</h2>
 
@@ -22,7 +39,7 @@
 <h3>Monero</h3>
 <p id="xmreur">..loading</p>
 
-<h3>Token Card</h3>
+<h3>Token Card man</h3>
 <p id="tkneur">not working yet</p>
     
 <h3>Stellar Lumen</h3>
