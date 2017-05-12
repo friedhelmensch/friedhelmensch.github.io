@@ -21,7 +21,7 @@
       krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
       krakenHttp.send(null);
       
-      var jqxhr = $.get( "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", function() {
+      var jqxhr = $.ajax( "https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", function() {
            alert( "coin" );
          })
            .done(function() {
