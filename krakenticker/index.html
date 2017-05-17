@@ -29,6 +29,7 @@
           {
                var response = JSON.parse(tokenCard.responseText);
                alert(tokenCard.responseText);
+               alert(response.price_eur);
           }
       }
       tokenCard.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", true);
