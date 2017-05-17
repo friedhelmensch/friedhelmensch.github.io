@@ -28,28 +28,12 @@
           if (tokenCard.readyState == 4 && tokenCard.status == 200)
           {
                var response = JSON.parse(tokenCard.responseText);
-               alert(tokenCard.responseText);
-               alert(response[0].price_eur);
+               document.getElementById("tkneur").innerHTML = response[0].price_eur;
           }
       }
       tokenCard.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", true);
       tokenCard.send(null);
-      
-      /*
-      var jqxhr = $.ajax({
-           type:"GET",
-           url: "https://crossorigin.me/https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR"
-         })
-           .done(function() {
-             alert( "done" );
-           })
-           .fail(function(xhr, textStatus, error) {
-             alert(textStatus);
-             alert(error);
-           })
-           .always(function() {
-             alert( "finished coin" );
-           });*/
+
    }
 </script>   
 </head>
@@ -73,7 +57,7 @@
 <h3>Bitcoin alter</h3>
 <p id="btceur">..loading</p>
 
-<h3>Token Card index 0</h3>
+<h3>Token Card</h3>
 <p id="tkneur">not working yet</p>
    
 </body>
