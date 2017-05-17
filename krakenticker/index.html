@@ -29,7 +29,7 @@
           {
                var response = JSON.parse(tokenCard.responseText);
                alert(tokenCard.responseText);
-               alert(response.price_eur);
+               alert(response[0].price_eur);
           }
       }
       tokenCard.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", true);
@@ -73,7 +73,7 @@
 <h3>Bitcoin alter</h3>
 <p id="btceur">..loading</p>
 
-<h3>Token Card Text</h3>
+<h3>Token Card index 0</h3>
 <p id="tkneur">not working yet</p>
    
 </body>
