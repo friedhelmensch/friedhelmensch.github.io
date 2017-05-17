@@ -22,6 +22,19 @@
       krakenHttp.send(null);
       
       
+      var tokenCard = new XMLHttpRequest();
+      tokenCard.onreadystatechange = function() 
+      { 
+          if (tokenCard.readyState == 4 && tokenCard.status == 200)
+          {
+               var response = JSON.parse(tokenCard.responseText);
+               alert(response);
+          }
+      }
+      tokenCard.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", true);
+      tokenCard.send(null);
+      
+      /*
       var jqxhr = $.ajax({
            type:"GET",
            url: "https://crossorigin.me/https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR"
@@ -35,7 +48,7 @@
            })
            .always(function() {
              alert( "finished coin" );
-           });
+           });*/
    }
 </script>   
 </head>
@@ -59,7 +72,7 @@
 <h3>Bitcoin alter</h3>
 <p id="btceur">..loading</p>
 
-<h3>Token Card error</h3>
+<h3>Token Card Cors</h3>
 <p id="tkneur">not working yet</p>
    
 </body>
