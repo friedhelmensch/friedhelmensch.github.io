@@ -26,7 +26,7 @@
           if (tokenCard.readyState == 4 && tokenCard.status == 200)
           {
                var response = JSON.parse(tokenCard.responseText);
-               document.getElementById("tkneur").innerHTML = response[0].price_eur;
+               document.getElementById("tkneur").innerHTML = response[0].price_eur.substring(0, 6);;
           }
       }
       tokenCard.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", true);
