@@ -11,9 +11,9 @@
           if (krakenHttp.readyState == 4 && krakenHttp.status == 200)
           {
                var response = JSON.parse(krakenHttp.responseText);
-               document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0];
-               document.getElementById("xmreur").innerHTML = response.result.XXMRZEUR.a[0];
-               document.getElementById("btceur").innerHTML = response.result.XXBTZEUR.a[0];
+               document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0].substring(0, 6);
+               document.getElementById("xmreur").innerHTML = response.result.XXMRZEUR.a[0].substring(0, 6);
+               document.getElementById("btceur").innerHTML = response.result.XXBTZEUR.a[0].substring(0, 6);
           }
       }
       krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XXLMZEUR", true);
@@ -26,7 +26,7 @@
           if (tokenCard.readyState == 4 && tokenCard.status == 200)
           {
                var response = JSON.parse(tokenCard.responseText);
-               document.getElementById("tkneur").innerHTML = response[0].price_eur.substring(0, 6);;
+               document.getElementById("tkneur").innerHTML = response[0].price_eur.substring(0, 6);
           }
       }
       tokenCard.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", true);
@@ -38,7 +38,7 @@
           if (golem.readyState == 4 && golem.status == 200)
           {
                var response = JSON.parse(golem.responseText);
-               document.getElementById("gnteur").innerHTML = response[0].price_eur;
+               document.getElementById("gnteur").innerHTML = response[0].price_eur.substring(0, 6);
           }
       }
       golem.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/golem-network-tokens/?convert=EUR", true);
@@ -50,7 +50,7 @@
           if (bat.readyState == 4 && bat.status == 200)
           {
                var response = JSON.parse(bat.responseText);
-               document.getElementById("bateur").innerHTML = response[0].price_eur;
+               document.getElementById("bateur").innerHTML = response[0].price_eur.substring(0, 6);
           }
       }
       bat.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/basic-attention-token/?convert=EUR", true);
@@ -62,7 +62,7 @@
           if (ans.readyState == 4 && ans.status == 200)
           {
                var response = JSON.parse(ans.responseText);
-               document.getElementById("anseur").innerHTML = response[0].price_eur;
+               document.getElementById("anseur").innerHTML = response[0].price_eur.substring(0, 6);
           }
       }
       ans.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/antshares/?convert=EUR", true);
