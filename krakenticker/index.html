@@ -13,11 +13,10 @@
                var response = JSON.parse(krakenHttp.responseText);
                document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0];
                document.getElementById("xmreur").innerHTML = response.result.XXMRZEUR.a[0];
-               document.getElementById("ltceur").innerHTML = response.result.XLTCZEUR.a[0];
                document.getElementById("btceur").innerHTML = response.result.XXBTZEUR.a[0];
           }
       }
-      krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XLTCZEUR,XXLMZEUR", true);
+      krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XXLMZEUR", true);
       krakenHttp.send(null);
       
       
@@ -57,6 +56,18 @@
       bat.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/basic-attention-token/?convert=EUR", true);
       bat.send(null);
       
+      var ans = new XMLHttpRequest();
+      ans.onreadystatechange = function() 
+      { 
+          if (ans.readyState == 4 && ans.status == 200)
+          {
+               var response = JSON.parse(ans.responseText);
+               document.getElementById("anseur").innerHTML = response[0].price_eur;
+          }
+      }
+      ans.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/antshares/?convert=EUR", true);
+      ans.send(null);
+      
    }
 </script>   
 </head>
@@ -67,12 +78,12 @@
 
 <h3>Ethereum</h3>
 <p id="etheur">...loading</p>
-
-<h3>Litecoin</h3>
-<p id="ltceur">..loading</p>
-
+   
 <h3>Monero</h3>
 <p id="xmreur">..loading</p>
+   
+<h3>Antshares</h3>
+<p id="anseur">..loading</p>
 
 <h3>Golem network tokens</h3>
 <p id="gnteur">..loading</p>
@@ -83,10 +94,8 @@
 <h3>Token Card</h3>
 <p id="tkneur">..loading</p>
    
-<h3>Bitcoin alter</h3>
+<h3>Bitcoin</h3>
 <p id="btceur">..loading</p>
-
-
    
 </body>
 </html> 
