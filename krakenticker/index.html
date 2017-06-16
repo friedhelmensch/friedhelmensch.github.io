@@ -12,11 +12,10 @@
           {
                var response = JSON.parse(krakenHttp.responseText);
                document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0].substring(0, 6);
-               document.getElementById("xmreur").innerHTML = response.result.XXMRZEUR.a[0].substring(0, 6);
                document.getElementById("btceur").innerHTML = response.result.XXBTZEUR.a[0].substring(0, 6);
           }
       }
-      krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXMRZEUR,XXBTZEUR,XXLMZEUR", true);
+      krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXBTZEUR", true);
       krakenHttp.send(null);
       
       
@@ -78,9 +77,6 @@
 
 <h3>Ethereum</h3>
 <p id="etheur">...loading</p>
-   
-<h3>Monero</h3>
-<p id="xmreur">..loading</p>
    
 <h3>Antshares</h3>
 <p id="anseur">..loading</p>
