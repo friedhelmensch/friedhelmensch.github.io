@@ -17,19 +17,6 @@
       krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXBTZEUR", true);
       krakenHttp.send(null);
       
-      
-      var tokenCard = new XMLHttpRequest();
-      tokenCard.onreadystatechange = function() 
-      { 
-          if (tokenCard.readyState == 4 && tokenCard.status == 200)
-          {
-               var response = JSON.parse(tokenCard.responseText);
-               document.getElementById("tkneur").innerHTML = response[0].price_eur.substring(0, 6);
-          }
-      }
-      tokenCard.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/tokencard/?convert=EUR", true);
-      tokenCard.send(null);
-      
       var golem = new XMLHttpRequest();
       golem.onreadystatechange = function() 
       { 
@@ -85,10 +72,7 @@
 
 <h3>Basic Attention Token</h3>
 <p id="bateur">..loading</p>
-   
-<h3>Token Card</h3>
-<p id="tkneur">..loading</p>
-   
+
 <h3>Bitcoin</h3>
 <p id="btceur">..loading</p>
    
