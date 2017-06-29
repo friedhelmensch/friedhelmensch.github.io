@@ -53,6 +53,18 @@
       ans.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/antshares/?convert=EUR", true);
       ans.send(null);
       
+      var status = new XMLHttpRequest();
+      status.onreadystatechange = function() 
+      { 
+          if (status.readyState == 4 && status.status == 200)
+          {
+               var response = JSON.parse(status.responseText);
+               document.getElementById("stneur").innerHTML = response[0].price_eur.substring(0, 6);
+          }
+      }
+      status.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/status/?convert=EUR", true);
+      status.send(null);
+      
    }
 </script>   
 </head>
@@ -70,6 +82,9 @@
 <h3>Golem network tokens</h3>
 <p id="gnteur">..loading</p>
 
+<h3>Status Network Tokens</h3>
+<p id="stneur">..loading</p>
+   
 <h3>Basic Attention Token</h3>
 <p id="bateur">..loading</p>
 
