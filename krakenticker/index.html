@@ -65,6 +65,19 @@
       status.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/status/?convert=EUR", true);
       status.send(null);
       
+      var storj = new XMLHttpRequest();
+      storj.onreadystatechange = function() 
+      { 
+          if (storj.readyState == 4 && storj.status == 200)
+          {
+               var response = JSON.parse(storj.responseText);
+               document.getElementById("storjeur").innerHTML = response[0].price_eur.substring(0, 6);
+          }
+      }
+      storj.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/storj/?convert=EUR", true);
+      storj.send(null);
+      
+      
    }
 </script>   
 </head>
@@ -84,6 +97,9 @@
 
 <h3>Status tokens</h3>
 <p id="stneur">..loading</p>
+
+<h3>Storj tokens</h3>
+<p id="storjeur">..loading</p>
    
 <h3>Basic Attention Token</h3>
 <p id="bateur">..loading</p>
