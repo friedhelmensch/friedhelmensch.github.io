@@ -29,18 +29,6 @@
       golem.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/golem-network-tokens/?convert=EUR", true);
       golem.send(null);
 
-      var bat = new XMLHttpRequest();
-      bat.onreadystatechange = function() 
-      { 
-          if (bat.readyState == 4 && bat.status == 200)
-          {
-               var response = JSON.parse(bat.responseText);
-               document.getElementById("bateur").innerHTML = response[0].price_eur.substring(0, 6);
-          }
-      }
-      bat.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/basic-attention-token/?convert=EUR", true);
-      bat.send(null);
-      
       var ans = new XMLHttpRequest();
       ans.onreadystatechange = function() 
       { 
@@ -100,9 +88,6 @@
 
 <h3>Storj tokens</h3>
 <p id="storjeur">..loading</p>
-   
-<h3>Basic Attention Token</h3>
-<p id="bateur">..loading</p>
 
 <h3>Bitcoin</h3>
 <p id="btceur">..loading</p>
