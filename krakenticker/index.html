@@ -74,8 +74,8 @@
                document.getElementById("ancjeur").innerHTML = response[0].price_eur.substring(0, 6);
           }
       }
-      storj.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/antcoin/?convert=EUR", true);
-      storj.send(null);
+      antcoin.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/antcoin/?convert=EUR", true);
+      antcoin.send(null);
       
       
    }
