@@ -3,7 +3,7 @@
 <head>
 <script type="text/javascript">
    
-   function doRequest(elementId, coinIdentifier)
+   function getCoinRates(elementId, coinIdentifier)
    {
       var request = new XMLHttpRequest();
       request.onreadystatechange = function() 
@@ -20,69 +20,13 @@
    
    function getRates()
    {     
-      var krakenHttp = new XMLHttpRequest();
-      krakenHttp.onreadystatechange = function() { 
-          if (krakenHttp.readyState == 4 && krakenHttp.status == 200)
-          {
-               var response = JSON.parse(krakenHttp.responseText);
-               document.getElementById("etheur").innerHTML = response.result.XETHZEUR.a[0].substring(0, 6);
-               document.getElementById("btceur").innerHTML = response.result.XXBTZEUR.a[0].substring(0, 6);
-          }
-      }
-      krakenHttp.open("GET", "https://api.kraken.com/0/public/Ticker?pair=XETHZEUR,XXBTZEUR", true);
-      krakenHttp.send(null);
-      
-      doRequest("gnteur", "golem-network-tokens");
-
-      var ans = new XMLHttpRequest();
-      ans.onreadystatechange = function() 
-      { 
-          if (ans.readyState == 4 && ans.status == 200)
-          {
-               var response = JSON.parse(ans.responseText);
-               document.getElementById("anseur").innerHTML = response[0].price_eur.substring(0, 6);
-          }
-      }
-      ans.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/antshares/?convert=EUR", true);
-      ans.send(null);
-      
-      var status = new XMLHttpRequest();
-      status.onreadystatechange = function() 
-      { 
-          if (status.readyState == 4 && status.status == 200)
-          {
-               var response = JSON.parse(status.responseText);
-               document.getElementById("stneur").innerHTML = response[0].price_eur.substring(0, 6);
-          }
-      }
-      status.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/status/?convert=EUR", true);
-      status.send(null);
-      
-      var storj = new XMLHttpRequest();
-      storj.onreadystatechange = function() 
-      { 
-          if (storj.readyState == 4 && storj.status == 200)
-          {
-               var response = JSON.parse(storj.responseText);
-               document.getElementById("storjeur").innerHTML = response[0].price_eur.substring(0, 6);
-          }
-      }
-      storj.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/storj/?convert=EUR", true);
-      storj.send(null);
-      
-      var antcoin = new XMLHttpRequest();
-      antcoin.onreadystatechange = function() 
-      { 
-          if (antcoin.readyState == 4 && antcoin.status == 200)
-          {
-               var response = JSON.parse(antcoin.responseText);
-               document.getElementById("anceur").innerHTML = response[0].price_eur.substring(0, 6);
-          }
-      }
-      antcoin.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/antcoin/?convert=EUR", true);
-      antcoin.send(null);
-      
-      
+      getCoinRates("etheur", "ethereum");
+      getCoinRates("gnteur", "golem-network-tokens");
+      getCoinRates("anseur", "antshares");
+      getCoinRates("stneur", "status");
+      getCoinRates("storjeur", "storj");
+      getCoinRates("anceur", "antcoin");
+      getCoinRates("btceur", "bitcoin");
    }
 </script>   
 </head>
