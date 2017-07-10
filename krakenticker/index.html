@@ -65,6 +65,18 @@
       storj.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/storj/?convert=EUR", true);
       storj.send(null);
       
+      var antcoin = new XMLHttpRequest();
+      antcoin.onreadystatechange = function() 
+      { 
+          if (antcoin.readyState == 4 && antcoin.status == 200)
+          {
+               var response = JSON.parse(antcoin.responseText);
+               document.getElementById("ancjeur").innerHTML = response[0].price_eur.substring(0, 6);
+          }
+      }
+      storj.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/antcoin/?convert=EUR", true);
+      storj.send(null);
+      
       
    }
 </script>   
@@ -83,6 +95,9 @@
 <h3>Golem tokens</h3>
 <p id="gnteur">..loading</p>
 
+<h3>Antcoins</h3>
+<p id="anceur">..loading</p>
+   
 <h3>Status tokens</h3>
 <p id="stneur">..loading</p>
 
