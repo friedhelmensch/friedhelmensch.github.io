@@ -10,9 +10,8 @@
       { 
           if (request.readyState == 4 && request.status == 200)
           {
-               var priceIdentifier = "price_eur";
                var response = JSON.parse(request.responseText);
-               document.getElementById(elementId).innerHTML = response[0].{priceIdentifier}.substring(0, 6);
+               document.getElementById(elementId).innerHTML = response[0]["price_eur"].substring(0, 6);
           }
       }
       request.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/" + coinIdentifier +"/?convert=" + targetCurrency, true);
@@ -37,7 +36,7 @@
 
 <body onload="getRates()">
 
-<h2>Coi3n rates</h2>
+<h2>Coi4n rates</h2>
 
 <h3>Ethereum</h3>
 <p id="etheur">...loading</p>
