@@ -10,9 +10,11 @@
       { 
           if (request.readyState == 4 && request.status == 200)
           {
+               var limit = 6;
+               if(targetCurrency != "eur") limit = 10;
                const currencyPropertyName = "price_"+targetCurrency;
                var response = JSON.parse(request.responseText);
-               document.getElementById(elementId).innerHTML = response[0][currencyPropertyName].substring(0, 6);
+               document.getElementById(elementId).innerHTML = response[0][currencyPropertyName].substring(0, limit);
           }
       }
       request.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/" + coinIdentifier +"/?convert=" + targetCurrency, true);
@@ -27,8 +29,8 @@
       getCoinRates("gaseur", "gas", "eur");
       getCoinRates("btceur", "bitcoin", "eur");
       getCoinRates("wtceur", "walton", "eur");
-      getCoinRates("trxeur", "tron", "eth");
-      getCoinRates("lrceur", "loopring", "eth");
+      getCoinRates("trxeth", "tron", "eth");
+      getCoinRates("lrceth", "loopring", "eth");
       
       
    }
@@ -53,12 +55,12 @@
    
 <h3>Chainlink Tokens</h3>
 <p id="lnkeur">..loading</p>
-<p>-------------------Prices iin ETH-------------------------------</p>
+<p>-------------------Prices in ETH-------------------------------</p>
 <h3>Tronix</h3>
-<p id="trxeur">..loading</p>
+<p id="trxeth">..loading</p>
 
 <h3>Loopring</h3>
-<p id="lrceur">..loading</p>
+<p id="lrceth">..loading</p>
    
 <p>--------------------------------------------------------------</p>   
 <h3>Bitcoin</h3>
