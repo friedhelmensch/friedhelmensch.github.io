@@ -17,8 +17,8 @@
                document.getElementById(elementId).innerHTML = response[0][currencyPropertyName].substring(0, limit);
           }
       }
-      //request.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/" + coinIdentifier +"/?convert=" + targetCurrency, true);
-      request.open("GET", "https://jsonp.herokuapp.com/?callback=&url=https://api.coinmarketcap.com/v1/ticker/" + coinIdentifier +"/?convert=" + targetCurrency, true);
+      request.open("GET", "https://cors-anywhere.herokuapp.com/https://api.coinmarketcap.com/v1/ticker/" + coinIdentifier +"/?convert=" + targetCurrency, true);
+      //request.open("GET", "https://jsonp.herokuapp.com/?callback=&url=https://api.coinmarketcap.com/v1/ticker/" + coinIdentifier +"/?convert=" + targetCurrency, true);
       
       request.send(null);
    }
